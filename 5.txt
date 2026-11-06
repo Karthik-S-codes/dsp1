@@ -1,0 +1,46 @@
+from numpy.random import randn
+from numpy.random import seed
+from scipy.stats import pearsonr
+seed(1)
+data1=20*randn(1000)+100
+data2=data1+(10*randn(1000)+50)
+corr,_=pearsonr(data1,data2)
+print('pearson correlation:%.3f'%corr)
+
+from numpy.random import randn
+from numpy.random import seed
+from scipy.stats import spearmanr 
+seed(1) 
+data1 = 20 * randn(1000) + 100 
+data2 = data1 + (10 * randn(1000) + 50) 
+corr, _ = spearmanr(data1, data2)
+print('Spearmans correlation: %.3f' % corr) 
+
+import numpy as np
+x = [215, 325, 185, 332, 406, 522, 412, 614, 544, 421, 445, 408]
+y = [14.2, 16.4, 11.9, 15.2, 18.5, 22.1,  19.4, 25.1, 23.4, 18.1, 22.6, 17.2]
+matrix = np.corrcoef(x, y) 
+print(matrix) 
+
+
+t = np.arange(0, 10, 0.1)
+signal1 = np.sin(2 * np.pi * 2 * t)+ 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t))
+signal2 = np.sin(2 * np.pi * 2 * t) + 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t))
+numpy_correlation = np.corrcoef(signal1, signal2)[0, 1] 
+print('NumPy Correlation:', numpy_correlation) 
+
+import numpy as np
+t = np.arange(0, 10, 0.1) 
+signal1 = np.sin(2 * np.pi * 2 * t) + 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t))
+signal2 = np.sin(2 * np.pi * 2 * t) + 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t))
+from scipy.stats import pearsonr 
+scipy_correlation, _ = pearsonr(signal1, signal2) 
+print('SciPy Correlation:', scipy_correlation)
+
+import numpy as np
+t = np.arange(0, 10, 0.1)
+signal1 = np.sin(2 * np.pi * 2 * t) + 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t)) 
+signal2 = np.sin(2 * np.pi * 2 * t) + 0.5 * np.cos(2 * np.pi * 3 * t) + np.random.normal(0, 0.1, len(t)) 
+import statsmodels.api as sm
+statsmodels_correlation = sm.OLS(signal1, signal2).fit().rsquared 
+print('Statsmodels Correlation:', statsmodels_correlation) 
