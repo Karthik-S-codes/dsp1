@@ -1,0 +1,24 @@
+import pandas as pd 
+import numpy as np
+data = pd.read_csv('iris - iris.csv')
+data.head()
+df = data['species'].value_counts() 
+print(df)
+
+freq_table=pd.crosstab(data['species'],'no of species')
+freq_table
+
+import pandas as pd  
+import numpy as np 
+data = pd.read_csv('SampleSuperstore.csv') 
+freq_table = pd.crosstab(data['Ship Mode'], data['Segment'])
+freq_table
+
+import pandas as pd 
+df=pd.read_csv('iris-21.csv') 
+Average=df['petal_length'].mean() 
+print("Average:",Average)
+ Variance=df['petal_length'].var()
+ print("Variance:",Variance) 
+standard_deviation=df['petal_length'].std() 
+print("Standard Deviation:",standard_deviation)
