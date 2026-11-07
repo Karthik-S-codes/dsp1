@@ -1,0 +1,39 @@
+import seaborn as sns
+np.random.seed(42)
+data=pd.DataFrame({
+'X':np.random.rand(50)*10,
+'Y':2*np.random.rand(50)*10+5})
+sns.lmplot(x='X',y='Y',data=data,height=4)
+plt.show()
+
+data=sns.load_dataset("iris")
+sns.lineplot(x='sepal_length',y='sepal_width',data=data)
+
+import seaborn as sns
+import matplotlib.pyplot as plt 
+data = sns.load_dataset("iris")
+sns.lineplot(x="sepal_length", y="sepal_width", data=data) 
+sns.set_style("dark") 
+plt.show()
+
+import seaborn as sns
+import matplotlib.pyplot as plt 
+data = sns.load_dataset("iris") 
+sns.lineplot(x="sepal_length", y="sepal_width", data=data)
+sns.set_context("paper") 
+plt.show()
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+data = sns.load_dataset("iris")
+plt.figure(figsize = (4 , 3)) 
+sns.lineplot(x="sepal_length", y="sepal_width", data=data)
+plt.show() 
+
+import seaborn as sns
+ import matplotlib.pyplot as plt
+ data = sns.load_dataset('tips')
+ plt.figure(figsize=(8, 6)) 
+sns.swarmplot(x='day', y='total_bill', data=data)
+ plt.title('Swarm Plot of Total Bill by Day')
+ plt.show() 
